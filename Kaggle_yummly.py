@@ -34,4 +34,13 @@ def cuisin_ingredients(cuisine_type, top_num=10):
 	combined = np.unique(reduce(lambda x,y: x+y, dish), return_counts=True)
 	top_count = [x for (y,x) in sorted(zip(combined[1], combined[0]))]
 	return top_count[:top_num]
-print cuisin_ingredients('russian')
+
+lol=[1,2,3,4,5]
+
+print lol+list(filter(lambda x:x not in lol, [1,4,5,6,7]))
+
+# for i in ingredients:
+# 	print list(filter(lambda x: x not in lol, i))
+
+
+
