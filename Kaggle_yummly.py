@@ -36,8 +36,7 @@ def cuisin_ingredients(cuisine_type, top_num=10):
 	return top_count[:top_num]
 
 lol=[1,2,3,4,5]
-
-print lol+list(filter(lambda x:x not in lol, [1,4,5,6,7]))
+print lol.index(6)
 
 # for i in ingredients:
 # 	print list(filter(lambda x: x not in lol, i))
