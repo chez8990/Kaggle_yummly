@@ -19,27 +19,12 @@ with open('train.json') as f:
 train = pd.DataFrame({'Cuisine_id':cuisine_id, 'Cuisine': cusine, 'Ingredients': ingredients})
 # train.to_csv('train.csv')
 
+def ifinlist(row, x):
+    if x in row:
+        return True
+    else:
+        return False
 
-
-ingre = pd.read_csv('ingre.csv', index_col=None)
-
-
-ingre_sort_count = ingre.sort_values('count', ascending = False)
-top_40_ingre = ingre_sort_count[:40]
-
-cuisine_list = np.unique(train['Cuisine'])
-
-def cuisin_ingredients(cuisine_type, top_num=10):
-	dish = train[train['Cuisine']==cuisine_type]['Ingredients']
-	combined = np.unique(reduce(lambda x,y: x+y, dish), return_counts=True)
-	top_count = [x for (y,x) in sorted(zip(combined[1], combined[0]))]
-	return top_count[:top_num]
-
-lol=[1,2,3,4,5]
-print lol.index(6)
-
-# for i in ingredients:
-# 	print list(filter(lambda x: x not in lol, i))
-
-
+print train[train['Ingredients'].apply(lambda x: 'salt' in x)]['Cuisine'].value_counts(sort=False)
+print train[train['Ingredients'].apply(lambda x: 'ground cumin' in x)]['Cuisine'].value_counts(sort=False, dropna= False)
 
